@@ -284,6 +284,13 @@ helpers.handleActionPacket = function(e)
     
     -- Begins Casting
     if (type == 8) then
+        --Check cancellation
+        local actionId = ashita.bits.unpack_be(e.data_raw, 0, 86, 16);
+        if (actionId == 28787) then
+            casts[actorId] = nil;
+            return;
+        end
+
         local actionCount = ashita.bits.unpack_be(e.data_raw, 0, 182, 4);
         if (actionCount < 1) then return; end
 
