@@ -2,165 +2,180 @@ local drawCircle = require("drawCircle");
 local helpers = {};
 
 helpers.spells = T{
-    ["Horde Lullaby"] = {type = "Lullaby", CastTime = 2},
-    ["Horde Lullaby II"] = {type = "Lullaby", CastTime = 2},
-    ["Army's Paeon"] = {type = "Paeon", CastTime = 8},
-    ["Army's Paeon II"] = {type = "Paeon", CastTime = 8},
-    ["Army's Paeon III"] = {type = "Paeon", CastTime = 8},
-    ["Army's Paeon IV"] = {type = "Paeon", CastTime = 8},
-    ["Army's Paeon V"] = {type = "Paeon", CastTime = 8},
-    ["Army's Paeon VI"] = {type = "Paeon", CastTime = 8},
-    ["Army's Paeon VII"] = {type = "Paeon", CastTime = 8},
-    ["Army's Paeon VIII"] = {type = "Paeon", CastTime = 8},
-    ["Mage's Ballad"] = {type = "Ballad", CastTime = 8},
-    ["Mage's Ballad II"] = {type = "Ballad", CastTime = 8},
-    ["Mage's Ballad III"] = {type = "Ballad", CastTime = 8},
-    ["Knight's Minne"] = {type = "Minne", CastTime = 8},
-    ["Knight's Minne II"] = {type = "Minne", CastTime = 8},
-    ["Knight's Minne III"] = {type = "Minne", CastTime = 8},
-    ["Knight's Minne IV"] = {type = "Minne", CastTime = 8},
-    ["Knight's Minne V"] = {type = "Minne", CastTime = 8},
-    ["Valor Minuet"] = {type = "Minuet", CastTime = 8},
-    ["Valor Minuet II"] = {type = "Minuet", CastTime = 8},
-    ["Valor Minuet III"] = {type = "Minuet", CastTime = 8},
-    ["Valor Minuet IV"] = {type = "Minuet", CastTime = 8},
-    ["Valor Minuet V"] = {type = "Minuet", CastTime = 8},
-    ["Sword Madrigal"] = {type = "Madrigal", CastTime = 8},
-    ["Blade Madrigal"] = {type = "Madrigal", CastTime = 8},
-    --["Hunter's Prelude"] = {type = "Prelude", CastTime = 8},
-    --["Archer's Prelude"] = {type = "Prelude", CastTime = 8},
-    ["Sheepfoe Mambo"] = {type = "Mambo", CastTime = 8},
-    ["Dragonfoe Mambo"] = {type = "Mambo", CastTime = 8},
-    ["Honor March"] = {type = "March", CastTime = 8},
-    ["Advancing March"] = {type = "March", CastTime = 8},
-    ["Victory March"] = {type = "March", CastTime = 8},
-    ["Sinewy Etude"] = {type = "Etude", CastTime = 8},
-    ["Dextrous Etude"] = {type = "Etude", CastTime = 8},
-    ["Vivacious Etude"] = {type = "Etude", CastTime = 8},
-    ["Quick Etude"] = {type = "Etude", CastTime = 8},
-    ["Learned Etude"] = {type = "Etude", CastTime = 8},
-    ["Spirited Etude"] = {type = "Etude", CastTime = 8},
-    ["Enchanting Etude"] = {type = "Etude", CastTime = 8},
-    ["Herculean Etude"] = {type = "Etude", CastTime = 8},
-    ["Uncanny Etude"] = {type = "Etude", CastTime = 8},
-    ["Vital Etude"] = {type = "Etude", CastTime = 8},
-    ["Swift Etude"] = {type = "Etude", CastTime = 8},
-    ["Sage Etude"] = {type = "Etude", CastTime = 8},
-    ["Logical Etude"] = {type = "Etude", CastTime = 8},
-    ["Bewitching Etude"] = {type = "Etude", CastTime = 8},
-    ["Fire Carol"] = {type = "Carol", CastTime = 8},
-    ["Ice Carol"] = {type = "Carol", CastTime = 8},
-    ["Wind Carol"] = {type = "Carol", CastTime = 8},
-    ["Earth Carol"] = {type = "Carol", CastTime = 8},
-    ["Lightning Carol"] = {type = "Carol", CastTime = 8},
-    ["Water Carol"] = {type = "Carol", CastTime = 8},
-    ["Light Carol"] = {type = "Carol", CastTime = 8},
-    ["Dark Carol"] = {type = "Carol", CastTime = 8},
-    ["Fire Carol II"] = {type = "Carol", CastTime = 8},
-    ["Ice Carol II"] = {type = "Carol", CastTime = 8},
-    ["Wind Carol II"] = {type = "Carol", CastTime = 8},
-    ["Earth Carol II"] = {type = "Carol", CastTime = 8},
-    ["Lightning Carol II"] = {type = "Carol", CastTime = 8},
-    ["Water Carol II"] = {type = "Carol", CastTime = 8},
-    ["Light Carol II"] = {type = "Carol", CastTime = 8},
-    ["Dark Carol II"] = {type = "Carol", CastTime = 8},
-    ["Chocobo Mazurka"] = {type = "Mazurka", CastTime = 8},
-    ["Raptor Mazurka"] = {type = "Mazurka", CastTime = 8},
-    ["Goddess's Hymnus"] = {type = "Other Buff", CastTime = 8},
-    ["Sentinel's Scherzo"] = {type = "Other Buff", CastTime = 8},
-    ["Fowl Aubade"] = {type = "Other Buff", CastTime = 8},
-    ["Herb Pastoral"] = {type = "Other Buff", CastTime = 8},
-    ["Shining Fantasia"] = {type = "Other Buff", CastTime = 8},
-    ["Scop's Operetta"] = {type = "Other Buff", CastTime = 8},
-    ["Puppet's Operetta"] = {type = "Other Buff", CastTime = 8},
-    ["Gold Capriccio"] = {type = "Other Buff", CastTime = 8},
-    ["Warding Round"] = {type = "Other Buff", CastTime = 8},
-    ["Goblin Gavotte"] = {type = "Other Buff", CastTime = 8},
+    ["Horde Lullaby"] = {family = "Song", type = "Lullaby"},
+    ["Horde Lullaby II"] = {family = "Song", type = "Lullaby"},
+    ["Army's Paeon"] = {family = "Song", type = "Paeon"},
+    ["Army's Paeon II"] = {family = "Song", type = "Paeon"},
+    ["Army's Paeon III"] = {family = "Song", type = "Paeon"},
+    ["Army's Paeon IV"] = {family = "Song", type = "Paeon"},
+    ["Army's Paeon V"] = {family = "Song", type = "Paeon"},
+    ["Army's Paeon VI"] = {family = "Song", type = "Paeon"},
+    ["Army's Paeon VII"] = {family = "Song", type = "Paeon"},
+    ["Army's Paeon VIII"] = {family = "Song", type = "Paeon"},
+    ["Mage's Ballad"] = {family = "Song", type = "Ballad"},
+    ["Mage's Ballad II"] = {family = "Song", type = "Ballad"},
+    ["Mage's Ballad III"] = {family = "Song", type = "Ballad"},
+    ["Knight's Minne"] = {family = "Song", type = "Minne"},
+    ["Knight's Minne II"] = {family = "Song", type = "Minne"},
+    ["Knight's Minne III"] = {family = "Song", type = "Minne"},
+    ["Knight's Minne IV"] = {family = "Song", type = "Minne"},
+    ["Knight's Minne V"] = {family = "Song", type = "Minne"},
+    ["Valor Minuet"] = {family = "Song", type = "Minuet"},
+    ["Valor Minuet II"] = {family = "Song", type = "Minuet"},
+    ["Valor Minuet III"] = {family = "Song", type = "Minuet"},
+    ["Valor Minuet IV"] = {family = "Song", type = "Minuet"},
+    ["Valor Minuet V"] = {family = "Song", type = "Minuet"},
+    ["Sword Madrigal"] = {family = "Song", type = "Madrigal"},
+    ["Blade Madrigal"] = {family = "Song", type = "Madrigal"},
+    ["Hunter's Prelude"] = {family = "Song", type = "Prelude"},
+    ["Archer's Prelude"] = {family = "Song", type = "Prelude"},
+    ["Sheepfoe Mambo"] = {family = "Song", type = "Mambo"},
+    ["Dragonfoe Mambo"] = {family = "Song", type = "Mambo"},
+    ["Honor March"] = {family = "Song", type = "March"},
+    ["Advancing March"] = {family = "Song", type = "March"},
+    ["Victory March"] = {family = "Song", type = "March"},
+    ["Sinewy Etude"] = {family = "Song", type = "Etude"},
+    ["Dextrous Etude"] = {family = "Song", type = "Etude"},
+    ["Vivacious Etude"] = {family = "Song", type = "Etude"},
+    ["Quick Etude"] = {family = "Song", type = "Etude"},
+    ["Learned Etude"] = {family = "Song", type = "Etude"},
+    ["Spirited Etude"] = {family = "Song", type = "Etude"},
+    ["Enchanting Etude"] = {family = "Song", type = "Etude"},
+    ["Herculean Etude"] = {family = "Song", type = "Etude"},
+    ["Uncanny Etude"] = {family = "Song", type = "Etude"},
+    ["Vital Etude"] = {family = "Song", type = "Etude"},
+    ["Swift Etude"] = {family = "Song", type = "Etude"},
+    ["Sage Etude"] = {family = "Song", type = "Etude"},
+    ["Logical Etude"] = {family = "Song", type = "Etude"},
+    ["Bewitching Etude"] = {family = "Song", type = "Etude"},
+    ["Fire Carol"] = {family = "Song", type = "Carol"},
+    ["Ice Carol"] = {family = "Song", type = "Carol"},
+    ["Wind Carol"] = {family = "Song", type = "Carol"},
+    ["Earth Carol"] = {family = "Song", type = "Carol"},
+    ["Lightning Carol"] = {family = "Song", type = "Carol"},
+    ["Water Carol"] = {family = "Song", type = "Carol"},
+    ["Light Carol"] = {family = "Song", type = "Carol"},
+    ["Dark Carol"] = {family = "Song", type = "Carol"},
+    ["Fire Carol II"] = {family = "Song", type = "Carol"},
+    ["Ice Carol II"] = {family = "Song", type = "Carol"},
+    ["Wind Carol II"] = {family = "Song", type = "Carol"},
+    ["Earth Carol II"] = {family = "Song", type = "Carol"},
+    ["Lightning Carol II"] = {family = "Song", type = "Carol"},
+    ["Water Carol II"] = {family = "Song", type = "Carol"},
+    ["Light Carol II"] = {family = "Song", type = "Carol"},
+    ["Dark Carol II"] = {family = "Song", type = "Carol"},
+    ["Chocobo Mazurka"] = {family = "Song", type = "Mazurka"},
+    ["Raptor Mazurka"] = {family = "Song", type = "Mazurka"},
+    ["Foe Sirvente"] = {family = "Song", type = "Sirvente"},
+    ["Adventurer's Dirge"] = {family = "Song", type = "Dirge"},
+    ["Sentinel's Scherzo"] = {family = "Song", type = "Scherzo"},
+    ["Goddess's Hymnus"] = {family = "Song", type = "Hymnus"},
+    ["Aria of Passion"] = {family = "Song", type = "Aria"},
+    ["Fowl Aubade"] = {family = "Song", type = "Other Song"},
+    ["Herb Pastoral"] = {family = "Song", type = "Other Song"},
+    ["Shining Fantasia"] = {family = "Song", type = "Other Song"},
+    ["Scop's Operetta"] = {family = "Song", type = "Other Song"},
+    ["Puppet's Operetta"] = {family = "Song", type = "Other Song"},
+    ["Gold Capriccio"] = {family = "Song", type = "Other Song"},
+    ["Warding Round"] = {family = "Song", type = "Other Song"},
+    ["Goblin Gavotte"] = {family = "Song", type = "Other Song"},
+    ["Cactuar Fugue"] = {family = "Song", type = "Other Song"},
 
-    ["Diaga"] = {type = "Enfeeble", CastTime = 8},
-    ["Diaga II"] = {type = "Enfeeble", CastTime = 8},
-    ["Diaga III"] = {type = "Enfeeble", CastTime = 8},
-    ["Poisonga"] = {type = "Enfeeble", CastTime = 8},
-    ["Poisonga II"] = {type = "Enfeeble", CastTime = 8},
-    ["Sleepga"] = {type = "Enfeeble", CastTime = 8},
-    ["Sleepga II"] = {type = "Enfeeble", CastTime = 8},
-    ["Blindga"] = {type = "Enfeeble", CastTime = 8},
-    ["Silencega"] = {type = "Enfeeble", CastTime = 8},
-    ["Paralyzega"] = {type = "Enfeeble", CastTime = 8},
-    ["Breakga"] = {type = "Enfeeble", CastTime = 8},
-    ["Dispelga"] = {type = "Enfeeble", CastTime = 8},
-    ["Slowga"] = {type = "Enfeeble", CastTime = 8},
-    ["Bindga"] = {type = "Enfeeble", CastTime = 8},
+    ["Sleepga"] = {family = "Enfeebling", type = "Sleep"},
+    ["Sleepga II"] = {family = "Enfeebling", type = "Sleep"},
+    ["Breakga"] = {family = "Enfeebling", type = "Break"},
+    ["Silencega"] = {family = "Enfeebling", type = "Silence"},
+    ["Paralyzega"] = {family = "Enfeebling", type = "Paralyze"},
+    ["Diaga"] = {family = "Enfeebling", type = "Dia"},
+    ["Diaga II"] = {family = "Enfeebling", type = "Dia"},
+    ["Diaga III"] = {family = "Enfeebling", type = "Dia"},
+    ["Poisonga"] = {family = "Enfeebling", type = "Poison"},
+    ["Poisonga II"] = {family = "Enfeebling", type = "Poison"},
+    ["Blindga"] = {family = "Enfeebling", type = "Blind"},
+    ["Dispelga"] = {family = "Enfeebling", type = "Dispel"},
+    ["Slowga"] = {family = "Enfeebling", type = "Slow"},
+    ["Bindga"] = {family = "Enfeebling", type = "Bind"},
 
-    ["Protectra"] = {type = "Protect", CastTime = 8},
-    ["Protectra II"] = {type = "Protect", CastTime = 8},
-    ["Protectra III"] = {type = "Protect", CastTime = 8},
-    ["Protectra IV"] = {type = "Protect", CastTime = 8},
-    ["Protectra V"] = {type = "Protect", CastTime = 8},
+    ["Protectra"] = {family = "Enhancing", type = "Protect"},
+    ["Protectra II"] = {family = "Enhancing", type = "Protect"},
+    ["Protectra III"] = {family = "Enhancing", type = "Protect"},
+    ["Protectra IV"] = {family = "Enhancing", type = "Protect"},
+    ["Protectra V"] = {family = "Enhancing", type = "Protect"},
+    ["Shellra"] = {family = "Enhancing", type = "Shell"},
+    ["Shellra II"] = {family = "Enhancing", type = "Shell"},
+    ["Shellra III"] = {family = "Enhancing", type = "Shell"},
+    ["Shellra IV"] = {family = "Enhancing", type = "Shell"},
+    ["Shellra V"] = {family = "Enhancing", type = "Shell"},
+    ["Barfira"] = {family = "Enhancing", type = "Barspell"},
+    ["Barblizzara"] = {family = "Enhancing", type = "Barspell"},
+    ["Barthundra"] = {family = "Enhancing", type = "Barspell"},
+    ["Barwatera"] = {family = "Enhancing", type = "Barspell"},
+    ["Barstonra"] = {family = "Enhancing", type = "Barspell"},
+    ["Baraera"] = {family = "Enhancing", type = "Barspell"},
+    ["Baramnesra"] = {family = "Enhancing", type = "Barspell"},
+    ["Barsleepra"] = {family = "Enhancing", type = "Barspell"},
+    ["Barpoisonra"] = {family = "Enhancing", type = "Barspell"},
+    ["Barparalyzra"] = {family = "Enhancing", type = "Barspell"},
+    ["Barblindra"] = {family = "Enhancing", type = "Barspell"},
+    ["Barsilencera"] = {family = "Enhancing", type = "Barspell"},
+    ["Barpetra"] = {family = "Enhancing", type = "Barspell"},
+    ["Barvira"] = {family = "Enhancing", type = "Barspell"},
+    ["Auspice"] = {family = "Enhancing", type = "Auspice"},
+    ["Refreshga"] = {family = "Enhancing", type = "Refresh"},
+    ["Boost-STR"] = {family = "Enhancing", type = "Boost"},
+    ["Boost-DEX"] = {family = "Enhancing", type = "Boost"},
+    ["Boost-VIT"] = {family = "Enhancing", type = "Boost"},
+    ["Boost-AGI"] = {family = "Enhancing", type = "Boost"},
+    ["Boost-INT"] = {family = "Enhancing", type = "Boost"},
+    ["Boost-MND"] = {family = "Enhancing", type = "Boost"},
+    ["Boost-CHR"] = {family = "Enhancing", type = "Boost"},
 
-    ["Shellra"] = {type = "Shell", CastTime = 8},
-    ["Shellra II"] = {type = "Shell", CastTime = 8},
-    ["Shellra III"] = {type = "Shell", CastTime = 8},
-    ["Shellra IV"] = {type = "Shell", CastTime = 8},
-    ["Shellra V"] = {type = "Shell", CastTime = 8},
+    ["Curaga"] = {family = "Healing", type = "Cure"},
+    ["Curaga II"] = {family = "Healing", type = "Cure"},
+    ["Curaga III"] = {family = "Healing", type = "Cure"},
+    ["Curaga IV"] = {family = "Healing", type = "Cure"},
+    ["Curaga V"] = {family = "Healing", type = "Cure"},
+    ["Cura"] = {family = "Healing", type = "Cure"},
+    ["Cura II"] = {family = "Healing", type = "Cure"},
+    ["Cura III"] = {family = "Healing", type = "Cure"},
+    ["Esuna"] = {family = "Healing", type = "Cure"},
 
-    ["Barfira"] = {type = "Other Buff", CastTime = 1},
-    ["Barblizzara"] = {type = "Other Buff", CastTime = 1},
-    ["Barthundra"] = {type = "Other Buff", CastTime = 1},
-    ["Barwatera"] = {type = "Other Buff", CastTime = 1},
-    ["Barstonra"] = {type = "Other Buff", CastTime = 1},
-    ["Baraera"] = {type = "Other Buff", CastTime = 1},
-    ["Baramnesra"] = {type = "Other Buff", CastTime = 1},
-    ["Barsleepra"] = {type = "Other Buff", CastTime = 1},
-    ["Barpoisonra"] = {type = "Other Buff", CastTime = 1},
-    ["Barparalyzra"] = {type = "Other Buff", CastTime = 1},
-    ["Barblindra"] = {type = "Other Buff", CastTime = 1},
-    ["Barsilencera"] = {type = "Other Buff", CastTime = 1},
-    ["Barpetra"] = {type = "Other Buff", CastTime = 1},
-    ["Barvira"] = {type = "Other Buff", CastTime = 1},
-
-    ["Auspice"] = {type = "Other Buff", CastTime = 1},
-
-    ["Curaga"] = {type = "Heal", CastTime = 8},
-    ["Curaga II"] = {type = "Heal", CastTime = 8},
-    ["Curaga III"] = {type = "Heal", CastTime = 8},
-    ["Curaga IV"] = {type = "Heal", CastTime = 8},
-    ["Curaga V"] = {type = "Heal", CastTime = 8},
-
-    ["Cura"] = {type = "Heal", CastTime = 8},
-    ["Cura II"] = {type = "Heal", CastTime = 8},
-    ["Cura III"] = {type = "Heal", CastTime = 8},
-    ["Esuna"] = {type = "Heal", CastTime = 8},
-
-    ["Banishga"] = {type = "Damage", CastTime = 8},
-    ["Banishga II"] = {type = "Damage", CastTime = 8},
-    ["Banishga III"] = {type = "Damage", CastTime = 8},
-
-    ["Stonega"] = {type = "Damage", CastTime = 8},
-    ["Stonega II"] = {type = "Damage", CastTime = 8},
-    ["Stonega III"] = {type = "Damage", CastTime = 8},
-    ["Stoneja"] = {type = "Damage", CastTime = 8},
-    ["Aeroga"] = {type = "Damage", CastTime = 8},
-    ["Aeroga II"] = {type = "Damage", CastTime = 8},
-    ["Aeroga III"] = {type = "Damage", CastTime = 8},
-    ["Aeroja"] = {type = "Damage", CastTime = 8},
-    ["Firaga"] = {type = "Damage", CastTime = 8},
-    ["Firaga II"] = {type = "Damage", CastTime = 8},
-    ["Firaga III"] = {type = "Damage", CastTime = 8},
-    ["Firaja"] = {type = "Damage", CastTime = 8},
-    ["Blizzaga"] = {type = "Damage", CastTime = 8},
-    ["Blizzaga II"] = {type = "Damage", CastTime = 8},
-    ["Blizzaga III"] = {type = "Damage", CastTime = 8},
-    ["Blizzaja"] = {type = "Damage", CastTime = 8},
-    ["Thundaga"] = {type = "Damage", CastTime = 8},
-    ["Thundaga II"] = {type = "Damage", CastTime = 8},
-    ["Thundaga III"] = {type = "Damage", CastTime = 8},
-    ["Thundaja"] = {type = "Damage", CastTime = 8},
-    ["Waterga"] = {type = "Damage", CastTime = 8},
-    ["Waterga II"] = {type = "Damage", CastTime = 8},
-    ["Waterga III"] = {type = "Damage", CastTime = 8},
-    ["Waterja"] = {type = "Damage", CastTime = 8},
+    ["Banishga"] = {family = "Damage", type = "Banish"},
+    ["Banishga II"] = {family = "Damage", type = "Banish"},
+    ["Banishga III"] = {family = "Damage", type = "Banish"},
+    ["Stonega"] = {family = "Damage", type = "Stone"},
+    ["Stonega II"] = {family = "Damage", type = "Stone"},
+    ["Stonega III"] = {family = "Damage", type = "Stone"},
+    ["Stoneja"] = {family = "Damage", type = "Stone"},
+    ["Aeroga"] = {family = "Damage", type = "Aero"},
+    ["Aeroga II"] = {family = "Damage", type = "Aero"},
+    ["Aeroga III"] = {family = "Damage", type = "Aero"},
+    ["Aeroja"] = {family = "Damage", type = "Aero"},
+    ["Firaga"] = {family = "Damage", type = "Fire"},
+    ["Firaga II"] = {family = "Damage", type = "Fire"},
+    ["Firaga III"] = {family = "Damage", type = "Fire"},
+    ["Firaja"] = {family = "Damage", type = "Fire"},
+    ["Blizzaga"] = {family = "Damage", type = "Blizzard"},
+    ["Blizzaga II"] = {family = "Damage", type = "Blizzard"},
+    ["Blizzaga III"] = {family = "Damage", type = "Blizzard"},
+    ["Blizzaja"] = {family = "Damage", type = "Blizzard"},
+    ["Thundaga"] = {family = "Damage", type = "Thunder"},
+    ["Thundaga II"] = {family = "Damage", type = "Thunder"},
+    ["Thundaga III"] = {family = "Damage", type = "Thunder"},
+    ["Thundaja"] = {family = "Damage", type = "Thunder"},
+    ["Waterga"] = {family = "Damage", type = "Water"},
+    ["Waterga II"] = {family = "Damage", type = "Water"},
+    ["Waterga III"] = {family = "Damage", type = "Water"},
+    ["Waterja"] = {family = "Damage", type = "Water"},
+    ["Meteor"] = {family = "Damage", type = "Meteor"}
 };
+
+helpers.filterTypes = {
+    ["None"] = 0,
+    ["Party"] = 1,
+    ["Alliance"] = 2,
+    ["Everyone"] = 3,
+}
 
 --Taken from https://github.com/Jyouya/Ashita-Stuff/tree/master/addons/songcast
 local function getBone(actorPointer, bone)
@@ -212,38 +227,55 @@ local function GetIndexFromId(id)
     return 0;
 end
 
-local function shouldTrackAction(actorId, targetId)
+
+local function shouldTrackAction(actorId, targetId, spellFamily, spellSettings)
     if (not actorId) then return false; end
+    if (not targetId) then return false; end
+    --Pianissimo/single target song check
+    if (spellFamily == "Song" and actorId ~= targetId) then return false; end
 
     --NPC initiated
     if (bit.band(actorId, 0x1000000) ~= 0) then
-        if (aoeSettings.npcVisibilityMode == "All") then
+        if (not spellSettings.npcEnabled) then
+            return false;
+        end
+
+        local npcVisibilityMode = aoeSettings.npcVisibilityMode;
+        if (npcVisibilityMode == 3) then
             return true;
-        elseif (aoeSettings.npcVisibilityMode == "None") then
+        elseif (npcVisibilityMode == 0) then
             return false;
         end
 
         local party = AshitaCore:GetMemoryManager():GetParty();
+        if (not party) then return false end
+        local allowAlliance = npcVisibilityMode == 2;
         for i = 0, 17 do
             local memberId = party:GetMemberServerId(i);
-            if (memberId == targetId and (i < 6 or aoeSettings.npcVisibilityMode == "Alliance")) then
+            if (memberId == targetId and (allowAlliance or i < 6)) then
                 return true;
             end
         end
-    end
+    else --PC initiated  
+        if (not spellSettings.pcEnabled) then
+            return false;
+        end
 
-    --PC initiated
-    if (aoeSettings.pcVisibilityMode == "All") then
-        return true;
-    elseif (aoeSettings.pcVisibilityMode == "None") then
-        return false;
-    end
-
-    local party = AshitaCore:GetMemoryManager():GetParty();
-    for i = 0, 17 do
-        local memberId = party:GetMemberServerId(i);
-        if (memberId == actorId and (i < 6 or aoeSettings.pcVisibilityMode == "Alliance")) then
+        local pcVisibilityMode = aoeSettings.pcVisibilityMode;
+        if (pcVisibilityMode == 3) then
             return true;
+        elseif (pcVisibilityMode == 0) then
+            return false;
+        end
+
+        local party = AshitaCore:GetMemoryManager():GetParty();
+        if (not party) then return false end
+        local allowAlliance = pcVisibilityMode == 2;
+        for i = 0, 17 do
+            local memberId = party:GetMemberServerId(i);
+            if (memberId == actorId and (allowAlliance or i < 6)) then
+                return true;
+            end
         end
     end
 
@@ -252,6 +284,9 @@ end
 
 helpers.drawCircles = function()
     local entity = AshitaCore:GetMemoryManager():GetEntity();
+
+    local pulseSpeed = aoeSettings.adjustedPulseSpeed or 1000;
+    local pulsePhase = (os.clock() / pulseSpeed) % 1
 
     for id, cast in pairs(casts) do
         if (cast.timeOut) < os.clock() then
@@ -263,8 +298,8 @@ helpers.drawCircles = function()
         local x, y, z = getBone(targetPointer, 0);
         local range = aoeSettings.spells[cast.spellInfo.type].radius or 10;
         local color = aoeSettings.spells[cast.spellInfo.type].color or bit.lshift((0x44 / 0xFF) * 0xFF, 24) + 0x777777;
-
-        drawCircle(x, z, y, range, color, (os.clock() / 2) % 1);
+        
+        drawCircle(x, z, y, range, color, pulsePhase);
     end
 end
 
@@ -305,8 +340,8 @@ helpers.handleActionPacket = function(e)
         if (not spellInfo) then return; end
 
         --Check if spell tracking is enabled
-        local spellTypeSettings = aoeSettings.spells[spellInfo.type];
-        if (not spellTypeSettings or not spellTypeSettings.enabled) then
+        local spellSettings = aoeSettings.spells[spellInfo.type];
+        if (not spellSettings) then
             return;
         end
 
@@ -315,7 +350,7 @@ helpers.handleActionPacket = function(e)
         if (targetCount < 1) then return; end
 
         local targetId = ashita.bits.unpack_be(e.data_raw, 0, 150, 32)
-        if (not shouldTrackAction(actorId, targetId)) then return; end
+        if (not shouldTrackAction(actorId, targetId, spellInfo.family, spellSettings)) then return; end
 
         local targetIndex = nil;
         targetIndex = GetIndexFromId(targetId);

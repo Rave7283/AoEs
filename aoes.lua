@@ -1,6 +1,6 @@
 addon.name    = "aoes";
 addon.author  = "Rave";
-addon.version = "0.0";
+addon.version = "0.1";
 addon.desc    = "Draws area of effect circles.";
 
 require("common");
