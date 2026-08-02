@@ -1,6 +1,6 @@
 addon.name    = "aoes";
 addon.author  = "Rave";
-addon.version = "0.1";
+addon.version = "0.2";
 addon.desc    = "Draws area of effect circles.";
 
 require("common");
@@ -23,6 +23,7 @@ ashita.events.register("command", "command_handler", function(e)
         return
     end
 
+    e.blocked = true;
     showConfig[1] = not showConfig[1];
 end)
 
